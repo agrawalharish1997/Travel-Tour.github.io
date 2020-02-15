@@ -1,0 +1,104 @@
+{% load static %}
+<html>
+    <head>
+        <title >login here</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'styles/custom.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
+        <link href="{% static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.css'%}">
+        <link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.theme.default.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/animate.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'styles/main_styles.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'styles/responsive.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'styles/custom.css' %}">
+        <style>
+            body {
+                color: yellow;
+              }
+              
+            #loginmsg{
+                color: red;
+            }
+        </style>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    </head>
+
+<div class="container"><body class="login"   style="background-image:url(../static/images/about_background.jpg)">
+<form method="POST" action="login">
+    {%csrf_token%}
+    <div class="row">
+        <div class="col-md-6 col-md-offset-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                  <strong><h1>Login Here</h1></strong>
+                </div>
+                <div class="panel-body">
+                    <form class="form-horizontal" action="" role="form">
+                        
+                    <div class="form-group">
+                        <label for="inputEmail3"  class="col-sm-3 control-label">
+                           <h3>UserName</h3> </label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" name="username" placeholder="User Name" required="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-3 control-label">
+                           <h3>Password</h3> </label>
+                        <div class="col-sm-9">
+                            <input type="password" class="form-control"id='password' name="password" placeholder="Password" required="">
+                        </div>
+                        <input type="checkbox" onclick="Toggle()"> <b>Show Password</b> 
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-3 col-sm-9">
+                          <a href="forgetpassword"><h4>forget password</h4></a>
+                        </div>
+                    </div>
+                    <div class="form-group last">
+                        <div class="col-sm-offset-3 col-sm-9">
+                            <a href="login"><button type="submit" class="btn btn-success btn-sm">
+                                   <h3>Sign in</h3> </button></a>
+                                <a href="login"><button type="reset"  class="btn btn-default btn-sm">
+                                        <h4>Reset</h4></button></a> 
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div class="panel-footer">
+                   <h4>Not Registered?</h4>  <a href="register"><h4>Register here</h4></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form> 
+<div id='loginmsg'>
+    {% for msg in messages%}
+    <h2>{{msg}}</h2>
+    {%endfor%}
+</div>
+
+</div>
+<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'styles/bootstrap4/popper.js'%}"></script>
+<script src="{% static 'styles/bootstrap4/bootstrap.min.js' %}"></script>
+<script src="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.js' %}"></script>
+<script src="{% static 'plugins/Isotope/isotope.pkgd.min.js' %}"></script>
+<script src="{% static 'plugins/scrollTo/jquery.scrollTo.min.js' %}"></script>
+<script src="{% static 'plugins/easing/easing.js' %}"></script>
+<script src="{% static 'plugins/parallax-js-master/parallax.min.js' %}"></script>
+<script src="{% static 'js/custom.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script>  
+        function Toggle() { 
+            var temp = document.getElementByiId("password"); 
+            if (temp.type == "password") { 
+                temp.type = "text"; 
+            } 
+            else { 
+                temp.type = "password"; 
+            } 
+        } 
+</script>
+</body>
+</html>
